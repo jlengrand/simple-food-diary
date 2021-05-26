@@ -16,6 +16,7 @@
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.50.0",
+    "rollup-plugin-copy": "^3.4.0",
     "tslib": "^2.2.0",
     "typescript": "^4.2.4"
   },
@@ -35,6 +36,8 @@
   "author": "simple-food-diary",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "fa-icons": "^0.2.0",
     "lit": "*"
   },
   "eslintConfig": {

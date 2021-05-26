@@ -1,6 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+import "../src/diary-item";
+
 @customElement('simple-food-diary')
 export class SimpleFoodDiary extends LitElement {
   @property({ type: String }) title = 'My app';
@@ -32,29 +34,31 @@ export class SimpleFoodDiary extends LitElement {
 
   render() {
     return html`
-    <app-layout>
-      <drawer-toggle></drawer-toggle>
+      <header></header>
+      <main>
 
-      <div class="content">
+
         <h2>Portion size</h2>
 
-          <checkbox>snack</checkbox>
-          <checkbox>meal</checkbox>
-          <checkbox>Lavish meal</checkbox>
+          <diary-item icon="fas fa-utensils" name="snack" on></diary-item>
+          <diary-item icon="fas fa-utensils" name="meal"></diary-item>
+          <diary-item icon="fas fa-utensils" name="lavish meal"></diary-item>
 
         <h2>Meal type</h2>
 
-          <checkbox>Alcohol</checkbox>
-          <checkbox>Meat</checkbox>
-          <checkbox>Caffeine</checkbox>
-          <checkbox>Keto</checkbox>
-          <checkbox>Processed</checkbox>
-          <checkbox>water</checkbox>
-          <checkbox>delivered</checkbox>
+        <diary-item icon="fas fa-beer" name="alcohol"></diary-item>
+        <diary-item icon="fas fa-drumstick-bite" name="meat"></diary-item>
+        <diary-item icon="fas fa-coffee" name="caffeine"></diary-item>
+        <diary-item icon="fas fa-bacon" name="keto"></diary-item>
+        <diary-item icon="fas fa-blender-phone" name="processed"></diary-item>
+        <diary-item icon="fas fa-tint" name="water"></diary-item>
+        <diary-item icon="fas fa-truck" name="delivered"></diary-item>
 
         <button>Submit</button>
-        </div>
-    </app-layout>
+
+      </main>
+
+      <footer></footer>
     `;
   }
 }
