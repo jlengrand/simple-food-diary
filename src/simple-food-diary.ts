@@ -30,6 +30,18 @@ export class SimpleFoodDiary extends LitElement {
       background-color: red;
       width: 100%
     }
+
+    .portion-sizes{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .meal-types{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
   `;
 
   render() {
@@ -37,22 +49,25 @@ export class SimpleFoodDiary extends LitElement {
       <header></header>
       <main>
 
-
         <h2>Portion size</h2>
 
+        <div class="portion-sizes">
           <diary-item icon="fas fa-utensils" name="snack" on></diary-item>
           <diary-item icon="fas fa-utensils" name="meal"></diary-item>
           <diary-item icon="fas fa-utensils" name="lavish meal"></diary-item>
+        </div>
 
         <h2>Meal type</h2>
 
-        <diary-item icon="fas fa-beer" name="alcohol"></diary-item>
-        <diary-item icon="fas fa-drumstick-bite" name="meat"></diary-item>
-        <diary-item icon="fas fa-coffee" name="caffeine"></diary-item>
-        <diary-item icon="fas fa-bacon" name="keto"></diary-item>
-        <diary-item icon="fas fa-blender-phone" name="processed"></diary-item>
-        <diary-item icon="fas fa-tint" name="water"></diary-item>
-        <diary-item icon="fas fa-truck" name="delivered"></diary-item>
+        <div class="meal-types">
+          <diary-item icon="fas fa-beer" name="alcohol"></diary-item>
+          <diary-item icon="fas fa-drumstick-bite" name="meat"></diary-item>
+          <diary-item icon="fas fa-coffee" name="caffeine"></diary-item>
+          <diary-item icon="fas fa-bacon" name="keto"></diary-item>
+          <diary-item icon="fas fa-blender-phone" name="processed"></diary-item>
+          <diary-item icon="fas fa-tint" name="water"></diary-item>
+          <diary-item icon="fas fa-truck" name="delivered"></diary-item>
+        </div>
 
         <button>Submit</button>
 

@@ -10,6 +10,15 @@ class DiaryItem extends LitElement{
     @property({type:String}) icon = "";
 
     static styles = css`
+        :host{
+            padding:20px;
+            margin: 20px;
+            border-radius: 5000px;
+            border-color: #8D99AE;
+            border-width: 10px;
+            border: solid;
+        }
+
         .selected{
             background-color: #8D99AE;
         }
@@ -25,9 +34,9 @@ class DiaryItem extends LitElement{
 
     render(){
         return html`
-            <div class="${this.selected ? 'selected' : 'unselected'}">
+            <div class="${this.selected ? 'selected' : ''}">
                 <fa-icon class="${this.icon}"></fa-icon>
-                <p> ${this.name}</p>
+
             </div>
         `;
     }
