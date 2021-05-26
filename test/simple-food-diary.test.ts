@@ -1,7 +1,8 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import { SimpleFoodDiary } from '../src/SimpleFoodDiary.js';
+import { SimpleFoodDiary } from '../src/simple-food-diary.js';
 import '../src/simple-food-diary.js';
+
 
 describe('SimpleFoodDiary', () => {
   let element: SimpleFoodDiary;
