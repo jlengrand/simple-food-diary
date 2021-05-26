@@ -9,7 +9,14 @@ class DiaryItem extends LitElement{
     @property({type: String}) name = "";
     @property({type:String}) icon = "";
 
-    static styles = css``;
+    static styles = css`
+        .selected{
+            background-color: #8D99AE;
+        }
+
+        .unselected{
+        }
+    `;
 
     constructor(){
         super();
@@ -18,8 +25,10 @@ class DiaryItem extends LitElement{
 
     render(){
         return html`
-            <fa-icon class="${this.icon}"></fa-icon>
-            <p> ${this.name}</p>
+            <div class="${this.selected ? 'selected' : 'unselected'}">
+                <fa-icon class="${this.icon}"></fa-icon>
+                <p> ${this.name}</p>
+            </div>
         `;
     }
 }
