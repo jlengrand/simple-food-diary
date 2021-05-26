@@ -1,6 +1,5 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { openWcLogo } from './open-wc-logo.js';
 
 @customElement('simple-food-diary')
 export class SimpleFoodDiary extends LitElement {
@@ -15,66 +14,47 @@ export class SimpleFoodDiary extends LitElement {
       justify-content: flex-start;
       font-size: calc(10px + 2vmin);
       color: #1a2b42;
-      max-width: 960px;
       margin: 0 auto;
       text-align: center;
       background-color: var(--simple-food-diary-background-color);
     }
 
     main {
+      max-width: 960px;
       flex-grow: 1;
     }
 
-    .logo > svg {
-      margin-top: 36px;
-      animation: app-logo-spin infinite 20s linear;
-    }
-
-    @keyframes app-logo-spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
-      align-items: center;
-    }
-
-    .app-footer a {
-      margin-left: 5px;
+    header{
+      background-color: red;
+      width: 100%
     }
   `;
 
   render() {
     return html`
-      <main>
-        <div class="logo">${openWcLogo}</div>
-        <h1>${this.title}</h1>
+    <app-layout>
+      <drawer-toggle></drawer-toggle>
 
-        <p>Edit <code>src/SimpleFoodDiary.ts</code> and save to reload.</p>
-        <a
-          class="app-link"
-          href="https://open-wc.org/guides/developing-components/code-examples"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Code examples
-        </a>
-      </main>
+      <div class="content">
+        <h2>Portion size</h2>
 
-      <p class="app-footer">
-        🚽 Made with love by
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/open-wc"
-          >open-wc</a
-        >.
-      </p>
+          <checkbox>snack</checkbox>
+          <checkbox>meal</checkbox>
+          <checkbox>Lavish meal</checkbox>
+
+        <h2>Meal type</h2>
+
+          <checkbox>Alcohol</checkbox>
+          <checkbox>Meat</checkbox>
+          <checkbox>Caffeine</checkbox>
+          <checkbox>Keto</checkbox>
+          <checkbox>Processed</checkbox>
+          <checkbox>water</checkbox>
+          <checkbox>delivered</checkbox>
+
+        <button>Submit</button>
+        </div>
+    </app-layout>
     `;
   }
 }
