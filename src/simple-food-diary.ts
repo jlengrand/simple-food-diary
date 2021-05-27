@@ -1,8 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import "./portion-sizes";
-import "./meal-types";
+import "./food-log-form";
 
 @customElement('simple-food-diary')
 export class SimpleFoodDiary extends LitElement {
@@ -45,26 +44,20 @@ export class SimpleFoodDiary extends LitElement {
     }
   `;
 
-  submitMeal(){
-    console.log("submitting!");
-    const zeTypes = Array.from(document.querySelectorAll('.inp:checked')).map(e => e.nodeValue);
-    console.log(zeTypes);
-  }
+  // submitMeal(){
+  //   console.log("submitting!");
+  //   const stuff = document.querySelectorAll('input:checked');
+  //   console.log(stuff);
+  //   const zeTypes = Array.from(document.querySelectorAll('input:checked')).map(e => e.nodeValue);
+  //   console.log(zeTypes);
+  // }
 
   render() {
     return html`
       <header></header>
       <main>
 
-        <h2>Portion size</h2>
-
-        <portion-sizes></portion-sizes>
-
-        <h2>Meal type</h2>
-
-        <meal-types></meal-types>
-
-        <button @click="${this.submitMeal}">Submit</button>
+        <food-log-form></food-log-form>
 
       </main>
 
