@@ -1,7 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import "../src/diary-item";
+import "./portion-sizes";
+import "./meal-types";
 
 @customElement('simple-food-diary')
 export class SimpleFoodDiary extends LitElement {
@@ -51,23 +52,26 @@ export class SimpleFoodDiary extends LitElement {
 
         <h2>Portion size</h2>
 
-        <div class="portion-sizes">
-          <diary-item icon="fas fa-utensils" name="snack" on></diary-item>
-          <diary-item icon="fas fa-utensils" name="meal"></diary-item>
-          <diary-item icon="fas fa-utensils" name="lavish meal"></diary-item>
-        </div>
+        <portion-sizes></portion-sizes>
+        <!-- <div class="portion-sizes">
+          <portion-size icon="fas fa-utensils" name="snack" groupname="portion"></portion-size>
+          <portion-size icon="fas fa-utensils" name="meal" groupname="portion"></portion-size>
+          <portion-size icon="fas fa-utensils" name="lavish meal" groupname="portion"></portion-size>
+        </div> -->
 
         <h2>Meal type</h2>
 
-        <div class="meal-types">
-          <diary-item icon="fas fa-beer" name="alcohol"></diary-item>
-          <diary-item icon="fas fa-drumstick-bite" name="meat"></diary-item>
-          <diary-item icon="fas fa-coffee" name="caffeine"></diary-item>
-          <diary-item icon="fas fa-bacon" name="keto"></diary-item>
-          <diary-item icon="fas fa-blender-phone" name="processed"></diary-item>
-          <diary-item icon="fas fa-tint" name="water"></diary-item>
-          <diary-item icon="fas fa-truck" name="delivered"></diary-item>
-        </div>
+        <meal-types></meal-types>
+
+        <!-- <div class="meal-types">
+          <meal-type icon="fas fa-beer" name="alcohol"></meal-type>
+          <meal-type icon="fas fa-drumstick-bite" name="meat"></meal-type>
+          <meal-type icon="fas fa-coffee" name="caffeine"></meal-type>
+          <meal-type icon="fas fa-bacon" name="keto"></meal-type>
+          <meal-type icon="fas fa-blender-phone" name="processed"></meal-type>
+          <meal-type icon="fas fa-tint" name="water"></meal-type>
+          <meal-type icon="fas fa-truck" name="delivered"></meal-type>
+        </div> -->
 
         <button>Submit</button>
 
