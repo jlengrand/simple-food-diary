@@ -45,6 +45,12 @@ export class SimpleFoodDiary extends LitElement {
     }
   `;
 
+  submitMeal(){
+    console.log("submitting!");
+    const zeTypes = Array.from(document.querySelectorAll('.inp:checked')).map(e => e.nodeValue);
+    console.log(zeTypes);
+  }
+
   render() {
     return html`
       <header></header>
@@ -53,27 +59,12 @@ export class SimpleFoodDiary extends LitElement {
         <h2>Portion size</h2>
 
         <portion-sizes></portion-sizes>
-        <!-- <div class="portion-sizes">
-          <portion-size icon="fas fa-utensils" name="snack" groupname="portion"></portion-size>
-          <portion-size icon="fas fa-utensils" name="meal" groupname="portion"></portion-size>
-          <portion-size icon="fas fa-utensils" name="lavish meal" groupname="portion"></portion-size>
-        </div> -->
 
         <h2>Meal type</h2>
 
         <meal-types></meal-types>
 
-        <!-- <div class="meal-types">
-          <meal-type icon="fas fa-beer" name="alcohol"></meal-type>
-          <meal-type icon="fas fa-drumstick-bite" name="meat"></meal-type>
-          <meal-type icon="fas fa-coffee" name="caffeine"></meal-type>
-          <meal-type icon="fas fa-bacon" name="keto"></meal-type>
-          <meal-type icon="fas fa-blender-phone" name="processed"></meal-type>
-          <meal-type icon="fas fa-tint" name="water"></meal-type>
-          <meal-type icon="fas fa-truck" name="delivered"></meal-type>
-        </div> -->
-
-        <button>Submit</button>
+        <button @click="${this.submitMeal}">Submit</button>
 
       </main>
 

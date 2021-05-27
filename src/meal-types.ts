@@ -33,15 +33,11 @@ class MealTypes extends LitElement{
         :checked + span {
             background-color: #8D99AE;
         }
-        
+
     `;
 
     constructor(){
         super();
-        this.addEventListener('click', e => {
-            this.selected = !this.selected; 
-            console.log(this.selected);
-        });
     }
 
     render(){
