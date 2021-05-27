@@ -1,0 +1,12 @@
+{
+    "routes": [
+        {
+            "route": "/profile",
+            "allowedRoles": ["authenticated"]
+        },
+        {
+            "route": "/admin/*",
+            "allowedRoles": ["administrator"]
+        }
+    ]
+}
