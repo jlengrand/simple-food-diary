@@ -28,7 +28,9 @@
     "build": "rimraf dist && tsc && rollup -c rollup.config.js",
     "start:build": "npm run build && web-dev-server --root-dir dist --app-index index.html --open --compatibility none",
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "azure-local": "swa start http://localhost:8000/ --api api",
+    "full-start": "npm start && concurrently npm run azure-local"
   },
   "name": "simple-food-diary",
   "version": "0.0.0",

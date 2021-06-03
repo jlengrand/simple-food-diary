@@ -56,7 +56,6 @@ class FoodLogForm extends LitElement{
 
     render(){
         return html`
-
             <h2>Portion size</h2>
 
             <div class="portion-sizes">

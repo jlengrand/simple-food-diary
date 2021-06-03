@@ -1,11 +1,48 @@
 import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
+import {until} from 'lit/directives/until.js';
 
 import "./food-log-form";
+import "./login-screen";
 
 @customElement('simple-food-diary')
 export class SimpleFoodDiary extends LitElement {
   @property({ type: String }) title = 'My app';
+
+  @state()
+  me?: Object;
+
+  connectedCallback(){
+    super.connectedCallback();
+
+    if(!this.me){
+      this.fetchMe();
+    }
+  }
+
+  async fetchMe(){
+    const response = await fetch("/.auth/me");
+    const jsonResponse = await response.json();
+    console.log(jsonResponse);
+    this.me = jsonResponse.clientPrincipal;
+  }
+
+  render() {
+    return html`
+      <header>
+        <pre>${JSON.stringify(this.me, null, 2)}</pre>
+
+        ${this.me ? html`<a href="/.auth/logout">Logout</a>` : html`<a href="/.auth/login/twitter">Login</a>`}
+      </header>
+      <main>
+
+        <food-log-form></food-log-form>
+
+      </main>
+
+      <footer></footer>
+    `;
+  }
 
   static styles = css`
     :host {
@@ -51,17 +88,4 @@ export class SimpleFoodDiary extends LitElement {
   //   const zeTypes = Array.from(document.querySelectorAll('input:checked')).map(e => e.nodeValue);
   //   console.log(zeTypes);
   // }
-
-  render() {
-    return html`
-      <header></header>
-      <main>
-
-        <food-log-form></food-log-form>
-
-      </main>
-
-      <footer></footer>
-    `;
-  }
 }
