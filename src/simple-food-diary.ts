@@ -23,7 +23,6 @@ export class SimpleFoodDiary extends LitElement {
   async fetchMe(){
     const response = await fetch("/.auth/me");
     const jsonResponse = await response.json();
-    console.log(jsonResponse);
     this.me = jsonResponse.clientPrincipal;
   }
 
