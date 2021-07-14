@@ -1,5 +1,3 @@
-/* eslint-disable wc/guard-super-call */
-
 import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 
