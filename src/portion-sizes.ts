@@ -1,61 +1,78 @@
-import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { LitElement, html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import 'fa-icons';
 
 @customElement('portion-sizes')
-class DiaryItem extends LitElement{
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+class DiaryItem extends LitElement {
+  @property({ type: Boolean }) selected = false;
 
-    @property({type: Boolean}) selected = false;
-    @property({type: String}) name = "";
-    @property({type:String}) icon = "";
-    @property({type:String}) groupname = "";
+  @property({ type: String }) name = '';
 
-    static styles = css`
-        :host{
-        }
+  @property({ type: String }) icon = '';
 
-        label{
-            padding:20px;
-            margin: 20px;
-            border-radius: 5000px;
-            border-color: #8D99AE;
-            border-width: 10px;
-            border: solid;
-        }
+  @property({ type: String }) groupname = '';
 
-        :checked + span {
-            background-color: #8D99AE;
-        }
+  static styles = css`
+    :host {
+    }
 
-        .hidden{
-            display:none
-        }
+    label {
+      padding: 20px;
+      margin: 20px;
+      border-radius: 5000px;
+      border-color: #8d99ae;
+      border-width: 10px;
+      border: solid;
+    }
 
-        span{
-            width:100%;
-            height:100%;
-        }
+    :checked + span {
+      background-color: #8d99ae;
+    }
 
+    .hidden {
+      display: none;
+    }
+
+    span {
+      width: 100%;
+      height: 100%;
+    }
+  `;
+
+  render() {
+    return html`
+      <label for="snack">
+        <input
+          value="S"
+          id="snack"
+          type="radio"
+          class="hidden"
+          name="portion"
+        />
+        <span><fa-icon class="fas fa-utensils"></fa-icon></span>
+      </label>
+      <label for="meal">
+        <input
+          checked
+          value="M"
+          id="meal"
+          type="radio"
+          class="hidden"
+          name="portion"
+        />
+        <span><fa-icon class="fas fa-utensils"></fa-icon></span>
+      </label>
+      <label for="lavish">
+        <input
+          value="L"
+          id="lavish"
+          type="radio"
+          class="hidden"
+          name="portion"
+        />
+        <span><fa-icon class="fas fa-utensils"></fa-icon></span>
+      </label>
     `;
-
-    constructor(){
-        super();
-    }
-
-    render(){
-        return html`
-                <label for="snack">
-                    <input value="S" id="snack" type="radio" class="hidden" name="portion">
-                    <span><fa-icon class="fas fa-utensils"></fa-icon></span>
-                </label>
-                <label for="meal">
-                    <input checked value="M" id="meal" type="radio" class="hidden" name="portion">
-                    <span><fa-icon class="fas fa-utensils"></fa-icon></span>
-                </label>
-                <label for="lavish">
-                    <input  value="L" id="lavish" type="radio" class="hidden" name="portion">
-                    <span><fa-icon class="fas fa-utensils"></fa-icon></span>
-                </label>
-        `;
-    }
+  }
 }

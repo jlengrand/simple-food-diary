@@ -1,9 +1,10 @@
+/* eslint-disable wc/guard-super-call */
+
 import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import {until} from 'lit/directives/until.js';
 
-import "./food-log-form";
-import "./login-screen";
+import './food-log-form.js';
+import './login-screen.js';
 
 @customElement('simple-food-diary')
 export class SimpleFoodDiary extends LitElement {
@@ -12,16 +13,16 @@ export class SimpleFoodDiary extends LitElement {
   @state()
   me?: Object;
 
-  connectedCallback(){
+  connectedCallback() {
     super.connectedCallback();
 
-    if(!this.me){
+    if (!this.me) {
       this.fetchMe();
     }
   }
 
-  async fetchMe(){
-    const response = await fetch("/.auth/me");
+  async fetchMe() {
+    const response = await fetch('/.auth/me');
     const jsonResponse = await response.json();
     this.me = jsonResponse.clientPrincipal;
   }
@@ -31,12 +32,12 @@ export class SimpleFoodDiary extends LitElement {
       <header>
         <pre>${JSON.stringify(this.me, null, 2)}</pre>
 
-        ${this.me ? html`<a href="/.auth/logout">Logout</a>` : html`<a href="/.auth/login/twitter">Login</a>`}
+        ${this.me
+          ? html`<a href="/.auth/logout">Logout</a>`
+          : html`<a href="/.auth/login/twitter">Login</a>`}
       </header>
       <main>
-
         <food-log-form></food-log-form>
-
       </main>
 
       <footer></footer>
@@ -62,18 +63,18 @@ export class SimpleFoodDiary extends LitElement {
       flex-grow: 1;
     }
 
-    header{
+    header {
       background-color: red;
-      width: 100%
+      width: 100%;
     }
 
-    .portion-sizes{
+    .portion-sizes {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
     }
 
-    .meal-types{
+    .meal-types {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
