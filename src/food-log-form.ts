@@ -52,7 +52,7 @@ class FoodLogForm extends LitElement {
     console.log(meal);
 
     fetch(
-      '/api/tasks', // API location
+      '/api/addDiaryEntry', // API location
       {
         method: 'POST',
         body: JSON.stringify(meal),
