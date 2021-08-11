@@ -78,12 +78,4 @@ export class SimpleFoodDiary extends LitElement {
       justify-content: space-around;
     }
   `;
-
-  // submitMeal(){
-  //   console.log("submitting!");
-  //   const stuff = document.querySelectorAll('input:checked');
-  //   console.log(stuff);
-  //   const zeTypes = Array.from(document.querySelectorAll('input:checked')).map(e => e.nodeValue);
-  //   console.log(zeTypes);
-  // }
 }
