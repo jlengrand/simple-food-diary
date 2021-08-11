@@ -2,6 +2,8 @@ import { AzureFunction, Context } from '@azure/functions';
 
 const mongoose = require('mongoose');
 
+console.log('running!');
+
 mongoose.connect(process.env.CONNECTION_STRING);
 
 const taskSchema = new mongoose.Schema({
@@ -14,13 +16,11 @@ const EntryModel = mongoose.model('entry', taskSchema);
 const httpTrigger: AzureFunction = async function (
   context: Context
 ): Promise<void> {
-  // Read the uploaded task
+  console.log('running as well!');
+
   const { body } = context.req;
-  // Save to database
   const task = await EntryModel.create(body);
-  // Set the HTTP status to created
   context.res.status = 201;
-  // return new object
   context.res.body = task;
 };
 
