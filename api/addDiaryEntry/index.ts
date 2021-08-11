@@ -6,11 +6,11 @@ console.log('running!');
 
 mongoose.connect(process.env.CONNECTION_STRING);
 
-const taskSchema = new mongoose.Schema({
+const entrySchema = new mongoose.Schema({
   portionSize: String,
-  mealtypes: [String],
+  mealTypes: [String],
 });
-const EntryModel = mongoose.model('entry', taskSchema);
+const EntryModel = mongoose.model('entry', entrySchema);
 
 // eslint-disable-next-line func-names
 const httpTrigger: AzureFunction = async function (
@@ -20,6 +20,11 @@ const httpTrigger: AzureFunction = async function (
 
   const { body } = context.req;
   const task = await EntryModel.create(body);
+  context.res = {
+    header: {
+      'Content-Type': 'application/json',
+    },
+  };
   context.res.status = 201;
   context.res.body = task;
 };

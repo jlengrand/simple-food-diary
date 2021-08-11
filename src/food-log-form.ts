@@ -38,18 +38,18 @@ class FoodLogForm extends LitElement {
     const portionSize = this.shadowRoot!.querySelector<HTMLInputElement>(
       'input[type=radio]:checked'
     )?.value;
-    const mealtypes = Array.from<HTMLInputElement>(
+    const mealTypes = Array.from<HTMLInputElement>(
       this.shadowRoot!.querySelectorAll('input[type=checkbox]:checked')
     ).map(e => e.value);
 
     // TODO : add timestamp
     const meal = {
       portionSize,
-      mealtypes,
+      mealTypes,
     };
 
     // eslint-disable-next-line no-console
-    console.log(meal);
+    console.log(JSON.stringify(meal));
 
     fetch(
       '/api/addDiaryEntry', // API location
