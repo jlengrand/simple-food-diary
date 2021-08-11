@@ -54,14 +54,16 @@ class FoodLogForm extends LitElement {
     fetch(
       '/api/tasks', // API location
       {
-          method: 'POST',
-          body: JSON.stringify(meal),
-          headers: {
-              'Content-Type': 'application/json'
-          }
+        method: 'POST',
+        body: JSON.stringify(meal),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    ).then(response => {console.log(response)});
-
+      // eslint-disable-next-line no-console
+    ).then(response => {
+      console.log(response);
+    });
   }
 
   render() {
