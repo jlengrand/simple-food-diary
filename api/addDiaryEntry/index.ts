@@ -4,11 +4,18 @@ const mongoose = require('mongoose');
 
 console.log('running!');
 
-mongoose.connect(process.env.CONNECTION_STRING);
+mongoose.connect(
+  process.env.CONNECTION_STRING, // Retrieve connection string
+  {
+    // boiler plate values
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const entrySchema = new mongoose.Schema({
   portionSize: String,
-  mealTypes: [String],
+  // mealTypes: [String],
 });
 const EntryModel = mongoose.model('entry', entrySchema);
 

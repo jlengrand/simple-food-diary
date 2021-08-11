@@ -38,14 +38,13 @@ class FoodLogForm extends LitElement {
     const portionSize = this.shadowRoot!.querySelector<HTMLInputElement>(
       'input[type=radio]:checked'
     )?.value;
-    const mealTypes = Array.from<HTMLInputElement>(
-      this.shadowRoot!.querySelectorAll('input[type=checkbox]:checked')
-    ).map(e => e.value);
+    // const mealTypes = Array.from<HTMLInputElement>(
+    //   this.shadowRoot!.querySelectorAll('input[type=checkbox]:checked')
+    // ).map(e => e.value);
 
     // TODO : add timestamp
     const meal = {
       portionSize,
-      mealTypes,
     };
 
     // eslint-disable-next-line no-console
