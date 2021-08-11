@@ -15,7 +15,7 @@ mongoose.connect(
 
 const entrySchema = new mongoose.Schema({
   portionSize: String,
-  // mealTypes: [String],
+  mealTypes: [String],
 });
 const EntryModel = mongoose.model('entry', entrySchema);
 
