@@ -42,10 +42,10 @@ class FoodLogForm extends LitElement {
       this.shadowRoot!.querySelectorAll('input[type=checkbox]:checked')
     ).map(e => e.value);
 
-    // TODO : add timestamp
     const meal = {
       portionSize,
       mealTypes,
+      ts: new Date(),
     };
 
     // eslint-disable-next-line no-console
@@ -60,8 +60,8 @@ class FoodLogForm extends LitElement {
           'Content-Type': 'application/json',
         },
       }
-      // eslint-disable-next-line no-console
     ).then(response => {
+      // eslint-disable-next-line no-console
       console.log(response);
     });
   }

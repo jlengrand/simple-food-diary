@@ -31,7 +31,10 @@
     "clean": "rimraf dist",
     "pre-clean" : "eslint --fix; prettier --write",
     "azure-local": "swa start http://localhost:8000/ --api api",
-    "full-start": "npm start && concurrently npm run azure-local"
+    "full-start": "npm start && concurrently npm run azure-local",
+    "create-mongo": "docker run -d  --name mongo  -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongo -e MONGO_INITDB_ROOT_PASSWORD=mongo mongo",
+    "mongo" : "docker restart mongo", 
+    "mongo-stop": "docker stop mongo"
   },
   "name": "simple-food-diary",
   "version": "0.0.0",

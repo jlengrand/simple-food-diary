@@ -2,12 +2,9 @@ import { AzureFunction, Context } from '@azure/functions';
 
 const mongoose = require('mongoose');
 
-console.log('running!');
-
 mongoose.connect(
-  process.env.CONNECTION_STRING, // Retrieve connection string
+  process.env.CONNECTION_STRING,
   {
-    // boiler plate values
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
@@ -20,10 +17,7 @@ const entrySchema = new mongoose.Schema({
 const EntryModel = mongoose.model('entry', entrySchema);
 
 // eslint-disable-next-line func-names
-const httpTrigger: AzureFunction = async function (
-  context: Context
-): Promise<void> {
-  console.log('running as well!');
+const httpTrigger: AzureFunction = async function (context: Context): Promise<void> {
 
   const { body } = context.req;
   const task = await EntryModel.create(body);

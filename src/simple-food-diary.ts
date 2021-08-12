@@ -17,12 +17,26 @@ export class SimpleFoodDiary extends LitElement {
     if (!this.me) {
       this.fetchMe();
     }
+    else{
+      this.saveMe();
+    }
   }
 
   async fetchMe() {
     const response = await fetch('/.auth/me');
     const jsonResponse = await response.json();
     this.me = jsonResponse.clientPrincipal;
+  }
+
+  async saveMe() {
+    await fetch('/api/user',
+    {
+      method: 'POST',
+      body: JSON.stringify(this.me),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 
   render() {
