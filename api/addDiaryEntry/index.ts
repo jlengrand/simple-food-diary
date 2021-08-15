@@ -7,20 +7,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
   useUnifiedTopology: true,
 });
 
-const entrySchema = new mongoose.Schema({
-  portionSize: String,
-  mealTypes: [String],
-  ts: Date,
-});
-
-const userSchema = new mongoose.Schema({
-  userId: { type: String, required: true, unique: true },
-  identityProvider: { type: String, required: true },
-  userDetails: { type: String, required: true },
-  entries: [entrySchema],
-});
-
-const UserModel = mongoose.model('user', userSchema);
+const UserModel = require('../models.js');
 
 // eslint-disable-next-line func-names
 const httpTrigger: AzureFunction = async function (
