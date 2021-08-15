@@ -50,7 +50,7 @@ export class SimpleFoodDiary extends LitElement {
           : html`<a href="/.auth/login/twitter">Login</a>`}
       </header>
       <main>
-        <food-log-form></food-log-form>
+        <food-log-form .me=${this.me}></food-log-form>
       </main>
 
       <footer></footer>

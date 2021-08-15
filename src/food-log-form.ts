@@ -1,10 +1,13 @@
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import 'fa-icons';
 
 @customElement('food-log-form')
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class FoodLogForm extends LitElement {
+  @property()
+  me?: Object;
+
   static styles = css`
     .portion-size {
       display: flex;
@@ -48,14 +51,19 @@ class FoodLogForm extends LitElement {
       ts: new Date(),
     };
 
+    const payload = {
+      meal,
+      user: this.me,
+    };
+
     // eslint-disable-next-line no-console
-    console.log(JSON.stringify(meal));
+    console.log(JSON.stringify(payload));
 
     fetch(
       '/api/addDiaryEntry', // API location
       {
         method: 'POST',
-        body: JSON.stringify(meal),
+        body: JSON.stringify(payload),
         headers: {
           'Content-Type': 'application/json',
         },
