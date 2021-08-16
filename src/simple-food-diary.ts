@@ -2,7 +2,6 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 
 import './food-log-form.js';
-import './login-screen.js';
 
 @customElement('simple-food-diary')
 export class SimpleFoodDiary extends LitElement {
